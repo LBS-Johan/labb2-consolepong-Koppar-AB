@@ -12,6 +12,9 @@ namespace Labb2_ConsolePong
         int width;
         int height;
 
+        Paddle p1;
+
+
         public void StartGame()
         {
             // Setup konsol-fönstret
@@ -19,6 +22,7 @@ namespace Labb2_ConsolePong
             height = Console.WindowHeight;
             Console.CursorVisible = false;
 
+            p1 = new Paddle(1,10);
 
         }
 
@@ -27,13 +31,21 @@ namespace Labb2_ConsolePong
             //Töm hela skärmen i början av varje uppdatering.
             Console.Clear();
 
+            p1.Draw();
+
             if (Input.IsPressed(ConsoleKey.UpArrow))
             {
                 //Flytta spelare 1 uppåt
+                
+                p1.Move(1);
+                p1.Draw();
             }
             if (Input.IsPressed(ConsoleKey.DownArrow))
             {
                 //Flytta spelare 1 nedåt
+
+                
+                p1.Move(-1);
             }
 
             if (Input.IsPressed(ConsoleKey.W))
