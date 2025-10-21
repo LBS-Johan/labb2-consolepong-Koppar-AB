@@ -13,23 +13,31 @@ namespace Labb2_ConsolePong
 
         int size;
 
-        public Paddle(int x, int y)//int size
+        public Paddle(int x, int y) //int size
         {
             this.x = x;
             this.y = y;
+
+
             //this.size = size;
         }
 
-        public void Move (int yAmount)
+        public void Move (int yAmount, int height)
         {
-            yAmount = y;
+
+            if (y + yAmount <= height && y + yAmount > 0)
+            {
+                y = y + yAmount;
+            }
+
+                
             
         }
 
         public void Draw()
         {
 
-            Console.SetCursorPosition(x, y);
+            Console.SetCursorPosition(x, y - 1);
             Console.Write("|");
             
         }

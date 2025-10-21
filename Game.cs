@@ -13,7 +13,9 @@ namespace Labb2_ConsolePong
         int height;
 
         Paddle p1;
+        Paddle p2;
 
+        Ball ball;
 
         public void StartGame()
         {
@@ -22,7 +24,10 @@ namespace Labb2_ConsolePong
             height = Console.WindowHeight;
             Console.CursorVisible = false;
 
-            p1 = new Paddle(1,10);
+            p1 = new Paddle(100,10);
+            p2 = new Paddle(1, 10);
+
+            ball = new Ball(50, 10, 1, 1);
 
         }
 
@@ -32,29 +37,32 @@ namespace Labb2_ConsolePong
             Console.Clear();
 
             p1.Draw();
+            p2.Draw();
+
+            ball.CheckCollision(p1, p2, width, height);
+            ball.Draw();
 
             if (Input.IsPressed(ConsoleKey.UpArrow))
             {
                 //Flytta spelare 1 uppåt
                 
-                p1.Move(1);
-                p1.Draw();
+                p1.Move(-1, height);
             }
             if (Input.IsPressed(ConsoleKey.DownArrow))
             {
                 //Flytta spelare 1 nedåt
-
-                
-                p1.Move(-1);
+                p1.Move(1, height);
             }
 
             if (Input.IsPressed(ConsoleKey.W))
             {
                 //Flytta spelare 2 uppåt
+                p2.Move(-1, height);
             }
             if (Input.IsPressed(ConsoleKey.S))
             {
                 //Flytta spelare 2 nedåt
+                p2.Move(1, height);
             }
 
 
