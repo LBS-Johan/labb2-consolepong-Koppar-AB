@@ -24,10 +24,10 @@ namespace Labb2_ConsolePong
             height = Console.WindowHeight;
             Console.CursorVisible = false;
 
-            p1 = new Paddle(100,10);
-            p2 = new Paddle(1, 10);
+            p1 = new Paddle(110,10,3);
+            p2 = new Paddle(10, 10,3);
 
-            ball = new Ball(50, 10, 1, 1);
+            ball = new Ball(60, 10, 1, 1);
 
         }
 

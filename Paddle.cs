@@ -8,24 +8,24 @@ namespace Labb2_ConsolePong
 {
     internal class Paddle
     {
-        int x;
-        int y;
+        public int x;
+        public int y;
 
-        int size;
+        public int size;
 
-        public Paddle(int x, int y) //int size
+        public Paddle(int x, int y, int size)
         {
             this.x = x;
             this.y = y;
 
 
-            //this.size = size;
+            this.size = size;
         }
 
         public void Move (int yAmount, int height)
         {
 
-            if (y + yAmount <= height && y + yAmount > 0)
+            if (y + yAmount + size + 1 <= height && y + yAmount >= 0)
             {
                 y = y + yAmount;
             }
@@ -35,11 +35,12 @@ namespace Labb2_ConsolePong
         }
 
         public void Draw()
-        {
-
-            Console.SetCursorPosition(x, y - 1);
-            Console.Write("|");
-            
+        {        
+            for (int i = 1; i <= size; i++)
+            {
+                Console.SetCursorPosition(x, y + i);
+                Console.Write("|");
+            }
         }
 
 

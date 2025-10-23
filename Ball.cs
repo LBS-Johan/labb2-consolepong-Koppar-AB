@@ -30,12 +30,34 @@ namespace Labb2_ConsolePong
                 yVelocity = yVelocity * -1;
             }
 
-            if (x >= width - 1 || x <= 0)
+            if (x >= width - 5 || x <= 0 + 5)
             {
-                xVelocity = xVelocity * -1;
+                x = 60;
+                y = 10;
+                
             }
 
-            
+            if (x == p1.x - 1)
+            {
+                if(y == p1.y || y == p1.y - 1 || y == p1.y - 2)
+                {
+                    xVelocity = xVelocity * -1;
+                }
+                
+            }
+
+            if (x == p2.x + 1)
+            {
+                if (y == p2.y || y == p2.y - 1 || y == p2.y - 2)
+                {
+                    xVelocity = xVelocity * -1;
+                }
+
+            }
+
+
+
+
         }
 
         public void Move()
