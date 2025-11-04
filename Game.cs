@@ -24,8 +24,8 @@ namespace Labb2_ConsolePong
             height = Console.WindowHeight;
             Console.CursorVisible = false;
 
-            p1 = new Paddle(110,10,3);
-            p2 = new Paddle(10, 10,3);
+            p1 = new Paddle(110,10,5);
+            p2 = new Paddle(10, 10,5);
 
             ball = new Ball(60, 10, 1, 1);
 
@@ -39,7 +39,7 @@ namespace Labb2_ConsolePong
             p1.Draw();
             p2.Draw();
 
-            ball.CheckCollision(p1, p2, width, height);
+            ball.CheckCollision(p1, p2, width, height, p1.size, p2.size);
             ball.Draw();
 
             if (Input.IsPressed(ConsoleKey.UpArrow))
@@ -64,8 +64,6 @@ namespace Labb2_ConsolePong
                 //Flytta spelare 2 nedåt
                 p2.Move(1, height);
             }
-
-
 
             //Return true om spelet ska fortsätta
             return true;
